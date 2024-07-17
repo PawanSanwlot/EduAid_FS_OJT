@@ -1,0 +1,110 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Custom styles for sidebar */
+  .sidebar {
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed position */
+    padding-top: 4rem; /* Adjust as needed */
+    overflow-y: auto; /* Enable scrolling if content exceeds viewport */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+  }
+  
+  .left-sidebar, .right-sidebar {
+    width: 280px; /* Width of sidebars */
+    background-color: #ffffff; /* White background */
+    transition: width 0.3s ease; /* Smooth transition */
+  }
+  
+  .left-sidebar {
+    left: 0;
+    border-right: 1px solid #eee; /* Separator line */
+  }
+  
+  .right-sidebar {
+    right: 0;
+    border-left: 1px solid #eee; /* Separator line */
+  }
+  
+  .sidebar-header {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff; /* White text */
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .sidebar-content {
+    padding: 1rem;
+  }
+  
+  .sidebar ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 0.5rem 0;
+  }
+  
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Make the image round */
+    margin: 0 auto 1rem; /* Center align and add margin */
+    display: block; /* Ensure it's centered properly */
+  }
+  
+  /* Media posts section */
+  #media-posts {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    padding-bottom: 1rem; /* Add space for scrollbar */
+  }
+  
+  .media-post {
+    flex: 0 0 auto; /* Maintain fixed size */
+    width: 300px; /* Width of each post */
+    margin: 0.5rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .media-post img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .media-post .post-content {
+    padding: 0.5rem;
+  }
+  
+  /* Main content */
+  .content {
+    margin-left: 300px; /* Width of left sidebar + margin */
+    margin-right: 300px; /* Width of right sidebar + margin */
+    padding: 1rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .left-sidebar, .right-sidebar {
+      width: 200px; /* Adjust sidebar width for smaller screens */
+    }
+    .content {
+      margin-left: 220px; /* Adjust content margin */
+      margin-right: 220px; /* Adjust content margin */
+    }
+    #media-posts {
+      margin-top: 1rem; /* Adjust margin for media posts section */
+    }
+    .media-post {
+      width: calc(50% - 1rem); /* Two columns on smaller screens */
+    }
+  }
+  

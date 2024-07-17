@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-brand">
+            <h1>MediaApp</h1>
+        </div>
+        <nav class="navbar-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="left-sidebar">
+            <div class="profile-pic">
+                <img src="profile-pic.jpg" alt="User Profile Picture">
+            </div>
+            <div class="profile-details">
+                <h2>User Name</h2>
+                <p>@username</p>
+                <p>Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <hr>
+            <div class="profile-stats">
+                <button class="sidebar-btn" onclick="showPosts()">Posts: 10</button>
+                <button class="sidebar-btn" onclick="showMedia()">Media: 5</button>
+                <button class="sidebar-btn" onclick="showSuccess()">Success: 8</button>
+                <button class="sidebar-btn" onclick="showPending()">Pending: 2</button>
+                <button class="sidebar-btn" onclick="showTotalWorks()">Total Works: 10</button>
+                <button class="sidebar-btn" onclick="showNotifications()">Notifications: 3</button>
+            </div>
+            <div class="media-button">
+                <a href="media.html" class="btn">Media</a>
+            </div>
+        </aside>
+        <main class="main-content" id="main-content">
+            <!-- Dynamic content will be inserted here -->
+        </main>
+        <aside class="right-sidebar">
+            <h2>Trust List</h2>
+            <ul class="trust-list">
+                <li>Trusted User 1</li>
+                <li>Trusted User 2</li>
+                <li>Trusted User 3</li>
+                <!-- Add more trusted users as needed -->
+            </ul>
+            <h2>Volunteer List</h2>
+            <ul class="volunteer-list">
+                <li>Volunteer 1</li>
+                <li>Volunteer 2</li>
+                <li>Volunteer 3</li>
+                <!-- Add more volunteers as needed -->
+            </ul>
+            <h2>Filters</h2>
+            <div class="filters">
+                <p>Filter 1</p>
+                <p>Filter 2</p>
+                <p>Filter 3</p>
+                <!-- Add more filters as needed -->
+            </div>
+        </aside>
+    </div>
+    <!-- Modal for full-screen image -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
