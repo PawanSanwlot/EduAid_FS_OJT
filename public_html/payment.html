@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="pay.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Charity Name</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="trusts.html">Trusts</a></li>
+                <li class="nav-item"><a class="nav-link active" href="donate.html">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Payment Section -->
+    <div class="container mt-5">
+        <h2 class="text-center">Payment</h2>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <p class="text-center">You have selected Trust: <strong id="trust-name">Trust Name</strong></p>
+                <form>
+                    <div class="form-group">
+                        <label for="donationAmount">Choose an Amount</label>
+                        <div class="btn-group btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
+                            <label class="btn btn-secondary flex-fill m-1">
+                                <input type="radio" name="amount" id="amount1" value="500"> ₹500
+                            </label>
+                            <label class="btn btn-secondary flex-fill m-1">
+                                <input type="radio" name="amount" id="amount2" value="1000"> ₹1,000
+                            </label>
+                            <label class="btn btn-secondary flex-fill m-1">
+                                <input type="radio" name="amount" id="amount3" value="2500"> ₹2,500
+                            </label>
+                            <label class="btn btn-secondary flex-fill m-1">
+                                <input type="radio" name="amount" id="amount4" value="5000"> ₹5,000
+                            </label>
+                            <label class="btn btn-secondary flex-fill m-1">
+                                <input type="radio" name="amount" id="amount5" value="other"> Other
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="otherAmount">Other Amount</label>
+                        <input type="number" class="form-control" id="otherAmount" placeholder="Enter amount">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Donate Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 Charity Name. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Script to retrieve and display the selected trust
+        const urlParams = new URLSearchParams(window.location.search);
+        const trustId = urlParams.get('trust');
+        const trustName = `Trust ${trustId}`; // Replace with actual trust name if available
+        document.getElementById('trust-name').textContent = trustName;
+    </script>
+</body>
+</html>

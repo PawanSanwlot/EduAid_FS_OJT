@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/Edu.css">
+    <style>
+ 
+     .container1 {
+         margin: 200px auto; 
+         padding-top: 150px;
+         max-width: 800px; 
+     }
+     
+     .btn-group-toggle .btn {
+         min-width: 100px;
+     }
+     
+     .btn-group-toggle .btn input[type="radio"] {
+         display: none;
+     }
+     
+     .btn-group-toggle .btn.active {
+         background-color: #007bff;
+         color: #fff;
+     }
+     
+     @media (max-width: 767.98px) {
+         .btn-group-toggle .btn {
+             min-width: 100%; 
+         }
+     }
+     
+    </style>
+</head>
+<body>
+   <nav class="navbar custom-navbar navbar-expand-lg navbar-dark" data-spy="affix">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="assets/imgs/logo.png"  style="width: 90px" alt="Creative studio Landing page" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Service</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Register</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-success btn-sm ml-lg-3" href="components.html">Donate now</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Payment Form Section -->
+    <div class="container1 mt-5">
+        <h2 class="text-center mb-4">Donation Form</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form onsubmit="event.preventDefault(); showPaymentModal();">
+                    <div class="form-group">
+                        <label for="donationAmount">Choose an Amount</label>
+                        <div class="btn-group btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
+                            <label class="btn btn-secondary flex-fill m-1">
+                                <input type="radio" name="amount" id="amount1" value="500"> ₹500
+                            </label>
+                            <label class="btn btn-secondary flex-fill m-1">
+                                <input type="radio" name="amount" id="amount2" value="1000"> ₹1000
+                            </label>
+                            <label class="btn btn-secondary flex-fill m-1">
+                                <input type="radio" name="amount" id="amount3" value="2000"> ₹2000
+                            </label>
+                            <label class="btn btn-secondary flex-fill m-1">
+                                <input type="radio" name="amount" id="amount4" value="5000"> ₹5000
+                            </label>
+                            <label class="btn btn-secondary flex-fill m-1">
+                                <input type="radio" name="amount" id="amount5" value="10000"> ₹10000
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="donorName">Your Name</label>
+                        <input type="text" class="form-control" id="donorName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="donorEmail">Email address</label>
+                        <input type="email" class="form-control" id="donorEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="donorPhone">Phone Number</label>
+                        <input type="text" class="form-control" id="donorPhone" placeholder="Enter your phone number" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Donate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentModalLabel">Choose Payment Method</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex flex-column">
+                        <button class="btn btn-outline-primary mb-2">GPay</button>
+                        <button class="btn btn-outline-primary mb-2">PhonePe</button>
+                        <button class="btn btn-outline-primary mb-2">ATM Card</button>
+                        <button class="btn btn-outline-primary mb-2">Net Banking</button>
+                        <button class="btn btn-outline-primary mb-2">PayPal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        function showPaymentModal() {
+            $('#paymentModal').modal('show');
+        }
+    </script>
+</body>
+</html>
