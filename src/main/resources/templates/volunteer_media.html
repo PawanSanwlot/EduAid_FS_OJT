@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Volunteer Media and Details</title>
+</head>
+<body>
+    <h1>Your Volunteer Profile</h1>
+    <form method="POST" action="/volunteer/update">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" th:value="${volunteer.fullName}" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:value="${volunteer.email}" disabled><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" th:value="${volunteer.address}" required><br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" th:value="${volunteer.city}" required><br>
+
+        <label for="district">District:</label>
+        <input type="text" id="district" name="district" th:value="${volunteer.district}" required><br>
+
+        <label for="mobileNumber">Mobile Number:</label>
+        <input type="text" id="mobileNumber" name="mobileNumber" th:value="${volunteer.mobileNumber}" required><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" th:value="${volunteer.age}" required><br>
+
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" name="profession" th:value="${volunteer.profession}" required><br>
+
+        <button type="submit">Update Profile</button>
+    </form>
+
+    <h1>Your Media Files</h1>
+    <div th:if="${mediaList != null}">
+        <div th:each="media : ${mediaList}">
+            <h2 th:text="${media.fileName}">Media File Name</h2>
+            <p th:text="${media.description}">Description</p>
+
+            <div th:if="${media.fileType.startsWith('video')}">
+                <video width="600" controls>
+                    <source th:src="@{/media/video/{id}(id=${media.id})}" 
+                            th:type="${media.fileType}" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div th:if="${media.fileType.startsWith('image')}">
+                <img th:src="@{/media/image/{id}(id=${media.id})}" 
+                     th:alt="${media.fileName}" 
+                     width="600"/>
+            </div>
+
+            <div th:if="${!media.fileType.startsWith('video') && !media.fileType.startsWith('image')}">
+                <p>Media format not supported for direct display. Download file:</p>
+                <a th:href="@{/media/download/{id}(id=${media.id})}">Download</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

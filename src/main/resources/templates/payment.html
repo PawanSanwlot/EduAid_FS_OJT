@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduaid Payment</title>
+    <link rel="stylesheet" href="/css/payment.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Eduaid Donate Now</h1>
+        <form id="paymentForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <div class="phone-input">
+                <select>
+                    <option value="+91">+91</option>
+                    <option value="+1">+1</option>
+                </select>
+                <input type="tel" id="mobile" placeholder="Mobile Number" required>
+            </div>
+            <input type="date" id="date" required>
+           
+            
+            <div class="donation-details">
+                <div>
+                    <label>Total Amount</label>
+                    <input type="number" id="amount" placeholder="Enter amount" min="0" required>
+                </div>
+            </div>
+            <div class="special-request">
+                <label>Get Notified?</label>
+                <label class="switch">
+                    <input type="checkbox" id="notify">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="net-amount">
+                <label>Net Amount</label>
+                <input type="number" id="netAmount" value="0" readonly>
+            </div>
+            <div class="button-group">
+                <button type="button" id="payBtn">DONATE NOW</button>
+                <button type="button" id="backBtn">BACK</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Razorpay checkout script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- Your custom script -->
+    <script src="/js/payment_script.js"></script>
+</body>
+</html>

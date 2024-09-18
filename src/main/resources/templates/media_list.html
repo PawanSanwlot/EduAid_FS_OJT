@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Media Posts</title>
+</head>
+<body>
+<div>
+    <h2>Your Media Posts</h2>
+
+    <c:if test="${!empty mediaPosts}">
+        <ul>
+            <c:forEach items="${mediaPosts}" var="media">
+                <li>
+                    <img src="/media/${media.id}/download" alt="${media.fileName}">
+                    <p>${media.description}</p>
+                </li>
+            </c:forEach>
+        </ul>
+    </c:if>
+
+    <c:if test="${empty mediaPosts}">
+        <p>No media posts found.</p>
+    </c:if>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Media</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1, h2 {
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .media-container {
+            background-color: #fff;
+            padding: 15px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            text-align: left;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: auto; /* Allow container to grow with content */
+        }
+
+        video {
+            width: auto; /* Maintain aspect ratio */
+            height: 100vh; /* Full viewport height */
+            max-width: 100%; /* Ensure it does not exceed viewport width */
+            display: block;
+            margin: 0 auto; /* Center horizontally */
+        }
+
+        img {
+            max-width: 100%; /* Responsive width */
+            height: auto; /* Maintain aspect ratio */
+            display: block;
+            margin: 0 auto; /* Center horizontally */
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .download-link:hover {
+            background-color: #0056b3;
+        }
+
+        .like-button {
+            cursor: pointer;
+            color: #007bff;
+            margin: 5px;
+        }
+
+        .liked {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 th:text="'Welcome, ' + ${user.fullName}">User Name</h1>
+    <p>Email: <span th:text="${user.email}">user@example.com</span></p>
+    
+    <h2>Your Media Files</h2>
+    <div th:if="${mediaList != null and !#lists.isEmpty(mediaList)}">
+        <div th:each="media, iterStat : ${mediaList}" class="media-container" th:classappend="${iterStat.index % 2 == 0 ? 'even' : 'odd'}">
+            <h3 th:text="${media.fileName}">Media File Name</h3>
+            <p th:text="${media.description}">Description</p>
+            <p>Uploaded by: <span th:text="${media.userEmail}">User Email</span></p>
+            
+            <div th:if="${media.fileType.startsWith('video')}">
+                <video controls class="video-player" data-media-id="${media.id}">
+                    <source th:src="@{/media/video/{id}(id=${media.id})}" 
+                            th:type="${media.fileType}" />
+                    Your browser does not support the video tag.
+                </video>
+                <p>
+                    <button class="like-button" data-media-id="${media.id}" onclick="likeMedia(this)">Like</button>
+                    <span id="like-count-${media.id}" th:text="${media.likeCount}">0</span>
+                </p>
+            </div>
+
+            <div th:if="${media.fileType.startsWith('image')}">
+                <img th:src="@{/media/image/{id}(id=${media.id})}" 
+                     th:alt="${media.fileName}" />
+            </div>
+
+            <div th:if="${!media.fileType.startsWith('video') and !media.fileType.startsWith('image')}">
+                <p>Media format not supported for direct display. Download file:</p>
+                <a th:href="@{/media/download/{id}(id=${media.id})}" class="download-link">Download</a>
+            </div>
+        </div>
+    </div>
+    <div th:if="${mediaList == null or #lists.isEmpty(mediaList)}">
+        <p>No media files found.</p>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoPlayers = document.querySelectorAll('.video-player');
+            let currentPlaying = null;
+
+            function playVideo(video) {
+                if (currentPlaying && currentPlaying !== video) {
+                    currentPlaying.pause();
+                }
+                currentPlaying = video;
+                video.play();
+            }
+
+            function onScroll() {
+                videoPlayers.forEach(video => {
+                    const rect = video.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                        if (video.paused) {
+                            playVideo(video);
+                        }
+                    } else if (!video.paused) {
+                        video.pause();
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', onScroll);
+            onScroll(); // Initial check
+        });
+
+        function likeMedia(button) {
+            const mediaId = button.getAttribute('data-media-id');
+            const userEmail = document.querySelector('p span').textContent; // Update to correctly get the user's email
+
+            fetch(`/like?mediaId=${mediaId}&userEmail=${encodeURIComponent(userEmail)}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    button.classList.add('liked');
+                    let likeCountElement = document.getElementById(`like-count-${mediaId}`);
+                    let likeCount = parseInt(likeCountElement.textContent, 10);
+                    likeCountElement.textContent = likeCount + 1;
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+</body>
+</html>

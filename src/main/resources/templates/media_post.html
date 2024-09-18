@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Media</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .media-container {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px;
+            border: 2px solid #333;
+            border-radius: 8px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .download-link:hover {
+            background-color: #0056b3;
+        }
+
+        .like-button {
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+
+        .like-button.liked {
+            background-color: #ff5722;
+        }
+
+        .like-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>All Media Files</h1>
+
+    <div th:if="${mediaList != null}">
+        <div th:each="media : ${mediaList}" class="media-container">
+            <h2 th:text="${media.fileName}">Media File Name</h2>
+            <p th:text="${media.description}">Description</p>
+            <p>Uploaded by: <span th:text="${media.userEmail}">User Email</span></p>
+
+            <div th:if="${media.fileType.startsWith('video')}">
+                <video class="video-player" controls>
+                    <source th:src="@{/media/video/{id}(id=${media.id})}" 
+                            th:type="${media.fileType}" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div th:if="${!media.fileType.startsWith('video')}">
+                <p>Media format not supported for video player. Download file:</p>
+                <a th:href="@{/media/download/{id}(id=${media.id})}" class="download-link">Download</a>
+            </div>
+
+           <!-- Save button -->
+<button class="save-button" data-media-id="[[${media.id}]]" onclick="saveMedia(this)">
+    Save
+</button>
+
+            
+        </div>
+    </div>
+
+    <script>
+        function likeMedia(button) {
+            const mediaId = button.getAttribute('data-media-id');
+            fetch(`/like?mediaId=${mediaId}&userEmail=${encodeURIComponent('${userEmail}')}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    button.classList.add('liked');
+                    let likeCountElement = document.getElementById(`like-count-${mediaId}`);
+                    let likeCount = parseInt(likeCountElement.textContent, 10);
+                    likeCountElement.textContent = likeCount + 1;
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+        
+        function saveMedia(button) {
+            const mediaId = button.getAttribute('data-media-id');
+            fetch(`/save?mediaId=${mediaId}&userEmail=${encodeURIComponent('${userEmail}')}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    button.classList.add('saved');
+                    alert('Media saved successfully!');
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+    </script>
+
+</body>
+</html>

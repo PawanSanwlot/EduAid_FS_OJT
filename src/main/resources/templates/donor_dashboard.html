@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust-Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css"> <!-- Link to external CSS file -->
+
+<style type="text/css">
+  
+.media-container {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.media-details {
+    margin-bottom: 15px;
+}
+
+.media-file-name {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.media-description {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.media-uploader {
+    color: #999;
+}
+
+.media-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-player {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.download-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+.save-button,
+.like-button {
+    margin-top: 10px;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.save-button:hover,
+.like-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.side-right .write-twit {
+  display: none;
+}
+
+.search-form {
+   background-color: rgb(38, 56, 98);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center; /* To vertically align the input and icon */
+  margin-bottom: 0; /* Ensure no bottom margin */
+}
+
+.search-form input {
+  background-color: var(--color-light);
+  color: var(--color-grey);
+  font-size: 14px;
+  width: 200px; /* Adjust this value for the desired width */
+  padding: 10px;
+  border: none;
+  outline: none; /* Remove the border and outline for a cleaner look */
+  border-radius: 15px; /* Optional: Add border-radius for smooth corners */
+}
+
+.search-form i {
+  color: var(--color-grey);
+  margin-left: 10px; /* Add some space between the input field and the icon */
+}
+
+
+.carousel-wrapper {
+  width: calc(232px * 1.3);
+  height: calc(350px * 1.4);
+  display: flex;
+  align-items: center;
+  margin: 0 auto 5px; /* Removed margin-top and set margin-bottom to 5px */
+  transform: translateX(-20px); /* Shifts the carousel to the left */
+  background-color: #f1f1f1;
+}
+
+.carousel-container {
+  width: 400px;
+  height: 290px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.carousel {
+  display: flex;
+  width: calc(400px * 3);
+  animation: sliding 8s infinite;
+}
+
+.carousel div {
+  width: 400px;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel:hover {
+  animation-play-state: paused;
+}
+
+.image-one {
+  background-image: url("https://images.unsplash.com/photo-1480936600919-bffa6b7ecf1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+}
+
+.image-two {
+  background-image: url("https://images.unsplash.com/photo-1475053081036-c8eb31d187b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+}
+
+.image-three {
+  background-image: url("https://images.unsplash.com/photo-1525278070609-779c7adb7b71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+}
+
+@keyframes sliding {
+  30% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(-400px);
+  }
+  65% {
+    transform: translateX(-400px);
+  }
+  70% {
+    transform: translateX(calc(-400px * 2));
+  }
+  98% {
+    transform: translateX(calc(-400px * 2));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-wrapper {
+    width: calc(220px * 1.3);
+    height: calc(150px * 1.4);
+    transform: translateX(-10px); /* Shifts the carousel slightly left on smaller screens */
+  }
+
+  .carousel-container {
+    width: 220px;
+    height: 150px;
+  }
+
+  .carousel {
+    width: calc(220px * 3);
+  }
+
+  .carousel div {
+    width: 220px;
+    height: 150px;
+  }
+
+  @keyframes sliding {
+    30% {
+      transform: translateX(0);
+    }
+    35% {
+      transform: translateX(-240px);
+    }
+    65% {
+      transform: translateX(-240px);
+    }
+    70% {
+      transform: translateX(calc(-240px * 2));
+    }
+    98% {
+      transform: translateX(calc(-240px * 2));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+.recent-activity {
+  background-color: #f1f1f1;
+  padding: 15px;
+
+  color: #fff; /* White text color */
+  font-family: 'Arial', sans-serif; /* Set font family */
+  font-size: 16px; /* General font size */
+  line-height: 1.6; /* Better readability */
+}
+
+.recent-activity h5 {
+  font-size: 18px; /* Larger font size for the title */
+  font-weight: bold; /* Bold title */
+  margin-bottom: 10px; /* Space between title and list */
+  color: #000000; /* Title color */
+}
+
+.recent-activity ul {
+  padding-left: 0; /* Remove default padding from ul */
+  list-style: none; /* Remove default bullet points */
+}
+
+.recent-activity li {
+  margin-bottom: 10px; /* Space between each list item */
+  font-size: 14px; /* Set font size for list items */
+}
+
+.recent-activity li a {
+  color: #000000; /* Link color */
+  text-decoration: none; /* Remove underline */
+  display: flex; /* Align icon and text */
+  align-items: center; /* Vertically center icon and text */
+}
+
+.recent-activity li a i {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 18px; /* Set icon size */
+}
+
+.recent-activity li a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.recent-activity li:hover i {
+  color: #ccc; /* Change icon color on hover */
+}
+
+/* Logout Section */
+.logout-section {
+  background-color: rgb(38, 56, 98); /* Red background */
+  padding: 10px;
+  display: flex; /* Use flexbox */
+  justify-content: flex-end; /* Align icon to the right */
+  align-items: center; /* Vertically center the icon */
+ 
+  height: 40px; /* Optional: Adjust height as needed */
+}
+
+.logout-section i {
+  font-size: 20px; /* Size of the icon */
+  cursor: pointer;
+  color: rgb(3, 130, 32); /* White icon color for contrast */
+  transition: color 0.3s ease;
+}
+
+.logout-section i:hover {
+  color: #ffcccc; /* Change icon color when hovered */
+}
+
+  </style>
+
+</head>
+
+<body class="light-theme">
+  <div class="twitter-wrap">
+    <!-- Left Sidebar -->
+    <div class="side-left">
+      <ul class="menu">
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_dashboard">
+            <i class="fas fa-home"></i>
+            <div class="icon-text">Home</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_profile">
+            <i class="fas fa-user-circle"></i>
+            <div class="icon-text">Profile</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_donor-list">
+            <i class="fas fa-hand-holding-heart"></i>
+            <div class="icon-text">Donor List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_trust-list">
+            <i class="fas fa-shield-alt"></i>
+            <div class="icon-text">Trust List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_volunteer-list">
+            <i class="fas fa-hands-helping"></i>
+            <div class="icon-text">Volunteer List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_favorites">
+            <i class="fas fa-bookmark"></i>
+            <div class="icon-text">Favorites</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_completed-cases">
+            <i class="fas fa-check-circle"></i>
+            <div class="icon-text">Cases Status</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_report-problem">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div class="icon-text">Report a Problem</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" id="theme-toggle" href="#">
+            <i class="fas fa-sun" id="theme-icon"></i>
+            <div class="icon-text">Theme</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content Area -->
+      <!-- Main Content Area -->
+<main class="side-main">
+    <div class="posts-container">
+        <!-- Example post structure -->
+        <div class="post">
+            <div class="post-header">
+                <!-- Add any header content here if needed -->
+            </div>
+
+            <!-- Media list integration -->
+            <div th:if="${mediaList != null}">
+                <div th:each="media : ${mediaList}" class="media-container">
+                    <div class="media-details">
+                        <b>
+                            <p class="media-uploader">
+                                <span th:text="${media.userEmail}">User Email</span>
+                            </p>
+                        </b>
+                        <p class="media-description" th:text="${media.description}">Description</p>
+                    </div>
+
+                    <!-- Video player or download link -->
+                    <div class="media-content">
+                        <div th:if="${media.fileType.startsWith('video')}">
+                            <video class="video-player" controls>
+                                <source th:src="@{/media/video/{id}(id=${media.id})}" 
+                                        th:type="${media.fileType}" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <div th:if="${!media.fileType.startsWith('video')}">
+                            <p>Media format not supported for video player. Download file:</p>
+                            <a th:href="@{/media/download/{id}(id=${media.id})}" class="download-link">Download</a>
+                        </div>
+                    </div>
+
+                    <!-- Post actions (Like, Comment, Share) -->
+                    <div class="post-actions">
+                        <button><i class="fa fa-thumbs-up"></i> Like</button>
+                        <button><i class="fa fa-comment"></i> Comment</button>
+                        <button><i class="fa fa-share"></i> Share</button>
+                    </div>
+
+                    <!-- Save button -->
+                    <button class="save-button" data-media-id="[[${media.id}]]" onclick="saveMedia(this)">
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <!-- Post image if no media available -->
+            <div th:if="${mediaList == null}" class="post-media">
+                <img src="/imgs/blog-1.jpg" alt="Post Image">
+            </div>
+        </div>
+
+        <!-- Add more posts here if needed -->
+    </div>
+</main>
+       <!-- Right Sidebar -->
+    <!-- Right Sidebar -->
+    <aside class="side-right">
+      <header class="header-section">
+        <div class="search-form">
+          <input type="text" placeholder="Search...">
+          <i class="fa fa-search"></i>
+          
+          <form action="/logout" method="post">
+    <button type="submit"><i class="fa fa-power-off"></i></button>
+</form>
+
+        </div>
+      </header>
+
+      <!-- Carousel Section -->
+      <div class="carousel-wrapper">
+        <div class="carousel-container">
+          <div class="carousel">
+            <div class="image-one"></div>
+            <div class="image-two"></div>
+            <div class="image-three"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity Section -->
+      <div class="recent-activity">
+        <h5>Recent Activity</h5>
+        <ul>
+          <li><a href="#"><i class="fa fa-certificate" style="color: green;"></i> User1 liked your post</a></li>
+          <li><a href="#"><i class="fa fa-certificate" style="color: green;"></i> User2 commented on your photo</a></li>
+          <li><a href="#"><i class="fa fa-certificate" style="color: green;"></i> User3 followed you</a></li>
+          <li><a href="#"><i class="fa fa-certificate" style="color: green;"></i> User4 shared your tweet</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  <!-- Scripts -->
+  <script>
+    // Toggle between light and dark themes
+    document.getElementById('theme-toggle').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.body.classList.toggle('dark-theme');
+      const icon = document.getElementById('theme-icon');
+      if (document.body.classList.contains('dark-theme')) {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      } else {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      }
+    });
+    
+    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const videoPlayers = document.querySelectorAll('.video-player');
+        let currentPlaying = null;
+
+        function playVideo(video) {
+            if (currentPlaying && currentPlaying !== video) {
+                currentPlaying.pause();
+            }
+            currentPlaying = video;
+            video.play();
+        }
+
+        function onScroll() {
+            videoPlayers.forEach(video => {
+                const rect = video.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    if (video.paused) {
+                        playVideo(video);
+                    }
+                } else if (!video.paused) {
+                    video.pause();
+                }
+            });
+        }
+
+        window.addEventListener('scroll', onScroll);
+        onScroll(); // Initial check
+    });
+    
+    
+    
+    
+    
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

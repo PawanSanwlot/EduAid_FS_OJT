@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Volunteer List</title>
+    <style>
+    /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Table Styles */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+thead th {
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+tfoot {
+    background-color: #f4f4f4;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+    
+    thead th, tbody td {
+        padding: 8px;
+    }
+}
+    
+    </style>
+</head>
+<body>
+    <h1>List of Volunteers</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Mobile Number</th>
+                <th>Profession</th>
+                <!-- Add other columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the list of volunteers -->
+            <tr th:each="volunteer : ${volunteers}">
+                <td th:text="${volunteer.fullName}">Full Name</td>
+                <td th:text="${volunteer.email}">Email</td>
+                <td th:text="${volunteer.mobileNumber}">Mobile Number</td>
+                <td th:text="${volunteer.professionOfVolunteer}">Profession</td>
+                <!-- Add other fields as necessary -->
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,287 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to external CSS file -->
+    <style>
+        .status-container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 89%;
+            margin-left: 70px;
+            height: 100%;
+        }
+
+        .status-option {
+            margin: 10px;
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #007bff;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .status-option:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .case-list {
+            margin-top: 20px;
+            
+            overflow-y: auto; /* Enable scrolling */
+            border: 1px solid #ddd; /* Optional: border to define scroll area */
+            border-radius: 5px;
+        }
+
+        table, th {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        td {
+            border: none; /* Remove horizontal borders */
+        }
+
+        td img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .description {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .profile-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+      /* Recent Activity Section Styles */
+      .recent-activity {
+        background-color: #fff; /* Background color for the section */
+        padding: 15px; /* Padding inside the section */
+        border-radius: 5px; /* Rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for the section */
+        margin-bottom: 20px; /* Space below the section */
+      }
+
+      .recent-activity h5 {
+        font-size: 16px; /* Font size for the header */
+        margin-bottom: 15px; /* Space below the header */
+      }
+
+      .recent-activity ul {
+        list-style-type: none; /* Remove default list styling */
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+      }
+
+      .recent-activity li {
+        margin-bottom: 10px; /* Space between list items */
+      }
+
+      .recent-activity a {
+        text-decoration: none; /* Remove underline from links */
+        color: #333; /* Text color for links */
+        display: flex; /* Flexbox for alignment */
+        align-items: center; /* Align items vertically */
+      }
+
+      .recent-activity a:hover {
+        color: #007bff; /* Change color on hover */
+      }
+
+      .recent-activity i {
+        margin-right: 10px; /* Space between icon and text */
+      }
+    </style>
+  </head>
+
+  <body class="light-theme">
+    <div class="twitter-wrap">
+      <!-- Left Sidebar -->
+    <div class="side-left">
+      <ul class="menu">
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_dashboard">
+            <i class="fas fa-home"></i>
+            <div class="icon-text">Home</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_profile">
+            <i class="fas fa-user-circle"></i>
+            <div class="icon-text">Profile</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_donor-list">
+            <i class="fas fa-hand-holding-heart"></i>
+            <div class="icon-text">Donor List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_trust-list">
+            <i class="fas fa-shield-alt"></i>
+            <div class="icon-text">Trust List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_volunteer-list">
+            <i class="fas fa-hands-helping"></i>
+            <div class="icon-text">Volunteer List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_favorites">
+            <i class="fas fa-bookmark"></i>
+            <div class="icon-text">Favorites</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_Cases Status">
+            <i class="fas fa-check-circle"></i>
+            <div class="icon-text">Cases Status</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_report-problem">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div class="icon-text">Report a Problem</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" id="theme-toggle" href="#">
+            <i class="fas fa-sun" id="theme-icon"></i>
+            <div class="icon-text">Theme</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+      <div class="side-main">
+        <div class="status-container">
+          <div class="status-option" onclick="showCases('completed')">Completed</div>
+          <div class="status-option" onclick="showCases('pending')">Pending</div>
+          <div class="status-option" onclick="showCases('in-progress')">In Progress</div>
+
+          <div class="case-list" id="caseList">
+              <!-- Case list will be displayed here -->
+          </div>
+      </div>
+      </div>
+
+      <!-- Right Sidebar (optional) -->
+      <div class="side-right">
+        <!-- Recent Activity Section -->
+        <div class="recent-activity">
+          <h5>Recent Activity</h5>
+          <ul>
+            <li><a href="#"><i class="fas fa-dot-circle" style="color: green;"></i> User1 liked your post</a></li>
+            <li><a href="#"><i class="fas fa-dot-circle" style="color: green;"></i> User2 commented on your photo</a></li>
+            <li><a href="#"><i class="fas fa-dot-circle" style="color: green;"></i> User3 followed you</a></li>
+            <li><a href="#"><i class="fas fa-dot-circle" style="color: green;"></i> User4 shared your tweet</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script> <!-- Link to external JavaScript file -->
+
+    <script>
+      const cases = {
+          completed: [
+              { photo: 'https://via.placeholder.com/50', name: 'John Doe', description: 'Case 1 description goes here.' },
+              { photo: 'https://via.placeholder.com/50', name: 'Jane Smith', description: 'Case 2 description goes here.' },
+              { photo: 'https://via.placeholder.com/50', name: 'Mike Lee', description: 'Case 3 description goes here.' }
+          ],
+          pending: [
+              { photo: 'https://via.placeholder.com/50', name: 'Alice Johnson', description: 'Case 4 description goes here.' },
+              { photo: 'https://via.placeholder.com/50', name: 'Bob Brown', description: 'Case 5 description goes here.' },
+              { photo: 'https://via.placeholder.com/50', name: 'Sam White', description: 'Case 6 description goes here.' }
+          ],
+          'in-progress': [
+              { photo: 'https://via.placeholder.com/50', name: 'Charlie Green', description: 'Case 7 description goes here.' },
+              { photo: 'https://via.placeholder.com/50', name: 'Diana Black', description: 'Case 8 description goes here.' },
+              { photo: 'https://via.placeholder.com/50', name: 'Eve Blue', description: 'Case 9 description goes here.' }
+          ]
+      };
+
+      function showCases(status) {
+          const caseList = document.getElementById('caseList');
+          caseList.innerHTML = `<h3>${status.replace('-', ' ').toUpperCase()} CASES</h3>`;
+          
+          // Create a table to structure the data
+          const table = document.createElement('table');
+          const tableHead = `
+              
+          `;
+          table.innerHTML = tableHead;
+
+          const tbody = document.createElement('tbody');
+          
+          cases[status].forEach(caseItem => {
+              const tr = document.createElement('tr');
+              tr.innerHTML = `
+                  <td><img src="${caseItem.photo}" alt="Profile Photo"></td>
+                  <td><span class="profile-name">${caseItem.name}</span></td>
+                  <td><span class="description">${caseItem.description}</span></td>
+              `;
+              tbody.appendChild(tr);
+          });
+
+          table.appendChild(tbody);
+          caseList.appendChild(table);
+      }
+        // Toggle between light and dark themes
+        document.getElementById('theme-toggle').addEventListener('click', function (e) {
+          e.preventDefault();
+          document.body.classList.toggle('dark-theme');
+          const icon = document.getElementById('theme-icon');
+          if (document.body.classList.contains('dark-theme')) {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+          } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+          }
+        });
+      </script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="/js/posts.js"></script> <!-- JavaScript for dynamically adding posts -->
+      <script src="/js/scripts.js"></script> <!-- Theme toggle and sidebar script -->
+  </body>
+
+  </html>

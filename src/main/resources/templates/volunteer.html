@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Creative Studio landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Creative Studio | Free Bootstrap 4.3.x template</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- font icons -->
+    <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+
+    <!-- Bootstrap + Creative Studio main styles -->
+	<link rel="stylesheet" href="/css/creative-studio.css">
+  <style>
+    .navbar .nav-link {
+      color: black; /* Change the color of nav links to black */
+  }
+  .navbar .nav-link:hover {
+      color: #333; /* Darker shade on hover */
+  }
+  .navbar .btn {
+      color: white !important; /* Ensure buttons keep their text color */
+  }
+    .bdy2 {
+        width: 100%;
+        max-width: 1050px;
+        margin: 90px auto 0; 
+        padding-top: 20px;
+        padding: 10px;
+        background-color: #ffffff00;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(22, 21, 21, 0.1);
+        color: rgb(255, 255, 255);
+      }
+      .volun p{
+        margin-top: 50px;
+        margin-left:250px;
+        
+      }
+      .volun img{
+        height: auto;
+        width:550px;
+      }
+    
+      .kri h1{
+        align-items: center;
+        justify-content: center;
+      }
+      .kri h1{
+        margin-left: 750px;
+        padding-top: 70px;
+        color: #000000;
+      }
+      
+     
+      .form {
+        width: 100%;
+      }
+    
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #000;
+      }
+    .fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+      
+      .input-field {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .input-field label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: 800;
+        font-size: large;
+        color: #000000; /* Label text color black */
+      }
+      
+      .input-field input,
+      .input-field select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+        color: #000; /* Text color fully opaque */
+      }
+      
+      /* Placeholder text color */
+      .input-field input::placeholder,
+      .input-field select option {
+        color: #000; /* Placeholder text color black */
+      }
+      
+      .input-field input[type="file"] {
+        padding: 3px;
+      }
+      
+      .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      
+      .submit {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      .submit:hover {
+        background-color: #45a049;
+      }
+      
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .fields {
+          grid-template-columns: 1fr;
+        }
+      }
+      #foo{
+        position: relative; 
+        margin-top: 700px;
+    }
+    .list{
+      margin: 50px auto;
+    }
+        </style>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" style="font-family: sans-serif;">
+    
+       <!-- Page Navigation -->
+       <nav class="navbar custom-navbar navbar-expand-lg navbar-dark" data-spy="affix" >
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/imgs/logo1.png"  style="width: 90px;" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+            </button>
+
+            <div class="collapse navbar-collapse navl" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/login">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-success btn-sm ml-lg-3" href="/payment">Donate now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Of Page Navigation -->
+  
+
+
+    <!-- Page Header -->
+    <header class="header">
+          <!-- About Section -->
+    <section id="about">
+      <div class="container volun">
+          <div class="row align-items-center">
+              <div class="col-md-5 col-lg-4">
+                  <img src="/imgs/volunteer.png" id="vol" alt="Img is Not Loaded">
+              </div>
+              <div class="col-md-7 col-lg-8">
+                  <h6 class="section-title mb-3">Volunteers</h6>
+                  <p>Volunteers are the frontline workers in the website's mission to combat hunger and poverty. They actively seek out poor children or families in need, documenting their situations and collecting essential information.</p>
+                  <p>Volunteers then post these details on their profiles or the trust's profile, effectively raising awareness of the needs within the community.</p>
+                  <p>Their work involves not only identifying those in need but also accurately capturing and conveying their stories to ensure they receive appropriate help. Volunteers are crucial in bridging the gap between the needy and the trust, as their efforts initiate the process of assistance and support.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- End of About Section -->
+        <div class="kri">
+          <h1 class="section-title mb-3">Volunteer Register</h1>
+        <div class="bdy2">
+         
+         <form th:action="@{/volunteer/submit}" method="post" enctype="multipart/form-data">
+    <div class="form first">
+        <div class="details personal">
+            <span class="title">Personal Details</span>
+
+            <div class="fields">
+                <div class="input-field">
+                    <label>Full Name</label>
+                    <input type="text" name="fullName" placeholder="Enter your name" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="input-field">
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Enter your password" required>
+</div>
+                
+
+                <div class="input-field">
+                    <label>Mobile Number</label>
+                    <input type="tel" name="mobileNumber" placeholder="Enter mobile number" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Government Professional ID Number</label>
+                    <input type="text" name="governmentProfessionalIdNumber" placeholder="Enter your Government Professional ID number" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Address</label>
+                    <input type="text" name="address" placeholder="Enter your address" required>
+                </div>
+
+                <div class="input-field">
+                    <label>City</label>
+                    <input type="text" name="city" placeholder="Enter your city" required>
+                </div>
+
+                <div class="input-field">
+                    <label>District</label>
+                    <input type="text" name="district" placeholder="Enter your district" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Have you joined any TRUST?</label>
+                    <input type="text" name="trustJoined" placeholder="Insert TRUST name if any">
+                </div>
+
+                <div class="input-field">
+                    <label>Age</label>
+                    <input type="number" name="age" placeholder="Enter your age" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Gender</label>
+                    <select name="gender" required>
+                        <option disabled selected>Select gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dateOfBirth" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Profession of Volunteer</label>
+                    <input type="text" name="professionOfVolunteer" placeholder="Enter your profession" required>
+                </div>
+
+                <!-- Terms and Conditions Checkbox -->
+                <div class="input-field">
+                    <label>
+                        <input type="checkbox" required>
+                        I agree to the <a href="#" target="_blank">Terms and Conditions</a>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="submit">
+                <span class="btnText">Submit</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+          
+            </div>
+          </div>
+    </header>
+    <!-- End Of Page Header -->
+    
+  
+    <!-- core  -->
+    <script src="/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap affix -->
+    <script src="/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Creative Studio js -->
+    <script src="/js/creative-studio.js"></script>
+
+</body>
+</html>

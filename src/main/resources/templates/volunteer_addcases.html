@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add-Cases</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css"> <!-- Link to external CSS file -->
+  <style>
+
+   /* Style for the form container */
+
+
+/* Style for the form block */
+.main-block {
+  width: 100%;
+  max-width: 400px;          /* Adjust the max width of the form */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the form elements */
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Add some additional styles for smaller screens */
+@media (max-width: 576px) {
+  .main-block {
+    width: 100%;
+    padding: 15px;
+  }
+}
+   
+  </style>
+</head>
+
+<body class="light-theme">
+  <div class="twitter-wrap">
+    <!-- Left Sidebar -->
+    <div class="side-left">
+      <ul class="menu">
+        <li class="menu-item">
+          <a class="menu-link" href="/vol_dashbord">
+            <i class="fas fa-home"></i>
+            <div class="icon-text">Home</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/volunteer_addcases">
+            <i class="fas fa-plus-circle" id="add-cases-icon"></i>
+            <div class="icon-text">Add Cases</div>
+          </a>
+        </li>        
+        <li class="menu-item">
+          <a class="menu-link" href="/volunteer_profile">
+            <i class="fas fa-user-circle"></i>
+            <div class="icon-text">Profile</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/volunteer_donarlist">
+            <i class="fas fa-hand-holding-heart"></i>
+            <div class="icon-text">Donor List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/volunteer_Trustlist">
+            <i class="fas fa-shield-alt"></i>
+            <div class="icon-text">Trust List</div>
+          </a>
+        </li>
+        
+        <li class="menu-item">
+          <a class="menu-link" href="/volunteer_favorites">
+            <i class="fas fa-bookmark"></i>
+            <div class="icon-text">Favorites</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/volunteer_cases_status">
+            <i class="fas fa-check-circle"></i>
+            <div class="icon-text">Cases Status</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/volunteer_report_problem">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div class="icon-text">Report a Problem</div>
+          </a>
+        </li>
+        <li class="menu-item"></li>
+          <a class="menu-link" id="theme-toggle" href="#">
+            <i class="fas fa-sun" id="theme-icon"></i>
+            <div class="icon-text">Theme</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+<main class="side-main">
+    <div class="posts-container">
+        <!-- Example post structure -->
+        <div class="post">
+            <div class="post-header">
+                <!-- Add any header content here if needed -->
+            </div>
+    <!-- Main Content Area -->
+    <div class="post-container">
+      <div class="main-content">
+        <div class="main-block">
+              <form action="/media/upload" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="file" class="form-label">File</label>
+            <input type="file" class="form-control" id="file" name="file" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" name="description" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="side-right">
+      <div class="search-form">
+        <form action="">
+          <label for="search"><i class="fas fa-search"></i></label>
+          <input type="text" id="search" placeholder="Search Twitter">
+        </form>
+      </div>
+
+      <!-- Advertisement Section with Carousel -->
+      <div class='wrapper' id='wrapper'>
+        <div class='wrapper-3d'>
+          <div class='carousel-wrapper center-3d'>
+            <div class='carousel-container' id='center'>
+              <div class='slide first'></div>
+              <div class='slide second'></div>
+              <div class='slide third'></div>
+            </div>
+            <div class='first image' id='img'></div>
+          </div>
+          <div class='carousel-wrapper left-3d center-3d'>
+            <div class='carousel-container' id='left'>
+              <div class='slide first'></div>
+              <div class='slide second'></div>
+              <div class='slide third'></div>
+            </div>
+          </div>
+          <div class='carousel-wrapper right-3d center-3d'>
+            <div class='carousel-container' id='right'>
+              <div class='slide first'></div>
+              <div class='slide second'></div>
+              <div class='slide third'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+
+      <!-- Recent Activity Section -->
+      <div class="recent-activity">
+        <h5>Recent Activity</h5>
+        <ul>
+          <li><a href="#"><i class="fa fa-certificate" style="color: green;"></i> User1 liked your post</a></li>
+          <li><a href="#"><i class="fa fa-certificate" style="color: green;"></i> User2 commented on your photo</a></li>
+          <li><a href="#"><i class="fa fa-certificate" style="color: green;"></i> User3 followed you</a></li>
+          <li><a href="#"><i class="fa fa-certificate" style="color: green;"></i> User4 shared your tweet</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Toggle between light and dark themes
+    document.getElementById('theme-toggle').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.body.classList.toggle('dark-theme');
+      const icon = document.getElementById('theme-icon');
+      if (document.body.classList.contains('dark-theme')) {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      } else {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      }
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="/js/posts.js"></script> <!-- JavaScript for dynamically adding posts -->
+</body>
+
+</html>

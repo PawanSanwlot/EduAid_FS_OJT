@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Creative Studio landing page.">
+    <meta name="author" content="Devcrud">
+        
+    <!-- Add your logo as a favicon -->
+    <link rel="icon" href="assets/imgs/LOGO_EDUAID.png" type="image/x-icon">
+
+    <title>EduAid Login</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Bootstrap + Creative Studio main styles -->
+    <link rel="stylesheet" href="css/creative-studio.css">
+    <link href="styles.css" rel="css/stylesheet">
+    <style>
+        body {
+            background-image: url('/imgs/2.jpg'); /* Path to the background image */
+            background-size: cover; /* Ensure the image covers the entire background */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            margin: 0; /* Remove default margin */
+            height: 100vh; /* Set body height to viewport height */
+        }
+        
+        .container1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Full height */
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: overlay color for better text readability */
+        }
+
+        .screen {
+            position: relative;
+            background: #3e3e3e;
+            padding: 100px 10px;
+            border-radius: 15px;
+            margin-top: 150px;
+            height: 550px;
+            width: 500px;
+            box-shadow: 0px 0px 24px #5C5696;
+        }
+
+        .screen__content {
+            padding: 30px;
+        }
+
+        .login {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login__field {
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        .login__icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #333;
+        }
+
+        .login__input {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            background: rgba(0, 0, 0, 0.5); /* Dark background for contrast */
+            font-size: 14px;
+            color: #fff; /* White text color */
+            outline: none;
+            border-radius: 4px;
+        }
+
+        .login__input::placeholder {
+            color: #aaa; /* Light gray color for placeholder text */
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #fff; /* White text color */
+            font-size: 16px;
+        }
+
+        .button a {
+            color: #fff; /* White text color for link */
+            text-decoration: none; /* Remove underline from link */
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .social-login {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-login h3 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-login__icon {
+            color: #333;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .social-login__icon:hover {
+            color: #007bff;
+        }
+
+        .screen__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .screen__background__shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .screen__background__shape1 {
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .screen__background__shape2 {
+            top: 100px;
+            right: -100px;
+            width: 250px;
+            height: 250px;
+        }
+
+        .screen__background__shape3 {
+            bottom: 100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .screen__background__shape4 {
+            bottom: -80px;
+            right: 50px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column; /* Align buttons in a column layout */
+            align-items: center; /* Center-align buttons horizontally */
+        }
+        
+        .modal-body .btn-custom {
+            background-color:  rgb(243, 244, 243); /* Blue background */
+            color: #000000; /* White text color */
+            border: none;
+            width: 250px; /* Set button width */
+            margin: 10px; /* Space between buttons */
+        }
+        
+        .modal-body .btn-custom:hover {
+            background-color: #00b32d; /* Darker blue for hover effect */
+        }
+        /* Make the modal background transparent */
+        .custom-modal-bg {
+                background-color: transparent;
+                 border: none; /* Optional: Remove the border if you want a fully transparent look */
+                        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    
+    <!-- Page Navigation -->
+    <nav class="navbar custom-navbar navbar-expand-lg navbar-dark" data-spy="affix" data-offset-top="40">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="/imgs/LOGO_EDUAID.png" style="width: 90px" alt="Creative studio Landing page" />
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-success btn-sm ml-lg-3" href="/payment">Donate now</a>
+                    </li>
+                </ul>
+          </div>
+        </div>
+    </nav>  
+    <!-- End Of Page Navigation -->
+
+    <div class="container1">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" action="/login" method="post">
+    <div class="login__field">
+        <i class="login__icon fas fa-user"></i>
+        <input type="text" class="login__input" name="email" placeholder="User name / Email" required>
+    </div>
+    <div class="login__field">
+        <i class="login__icon fas fa-lock"></i>
+        <input type="password" class="login__input" name="password" placeholder="Password" required>
+    </div>
+    <button type="submit" class="button login__submit">
+        <span class="button__text">Log In Now</span>
+        <i class="button__icon fas fa-chevron-right"></i>
+    </button>
+    <!-- Modified Register Button -->
+    <button type="button" class="button login__submit" data-toggle="modal" data-target="#registerModal">
+        <span class="button__text">Register</span>
+        <i class="button__icon fas fa-chevron-right"></i>
+    </button>
+</form>
+
+                <div class="social-login">
+                    <h3>Log in via</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-login__icon fab fa-instagram"></a>
+                        <a href="#" class="social-login__icon fab fa-facebook"></a>
+                        <a href="#" class="social-login__icon fab fa-twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+        </div>
+    </div>
+
+   <!-- Registration Modal -->
+<div class="modal fade" id="registerModal" tabindex="1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content custom-modal-bg"> <!-- Added class 'custom-modal-bg' -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <a href="/volunteer" class="btn btn-custom btn-green mb-2">Register as Volunteer</a> <!-- Added class 'btn-green' -->
+                <a href="/trust" class="btn btn-custom btn-green mb-2">Register as Trust</a> <!-- Added class 'btn-green' -->
+                <a href="/donater" class="btn btn-custom btn-green">Register as Donor</a> <!-- Added class 'btn-green' -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- login.html -->
+<div>
+    <h2>Login</h2>
+    <!-- Display success message after logout -->
+    <c:if test="${param.logout != null}">
+        <div class="alert alert-success">
+            You have successfully logged out.
+        </div>
+    </c:if>
+
+    <!-- Add your login form here -->
+</div>
+
+
+
+    <!-- jQuery and Bootstrap JS (Ensure these are included in this order) -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap affix -->
+    <script src="/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Creative Studio js -->
+    <script src="/js/creative-studio.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Details</title>
+    <style>
+        /* Add the CSS styles here */
+    </style>
+</head>
+<body>
+    <h2 th:text="'Details for ' + ${role}"></h2>
+    <div class="user-details">
+        <div class="profile">
+            <img th:src="@{${user.profilePictureUrl}}" alt="Profile Picture" class="img-thumbnail rounded mb-2">
+            <form th:action="@{/updateProfile}" method="post" enctype="multipart/form-data">
+                <input type="file" name="profilePicture" accept="image/*" />
+                <input type="text" name="email" th:value="${user.email}" placeholder="Enter new email" required />
+                <input type="hidden" name="userId" th:value="${user.id}" />
+                <input type="submit" value="Save Changes" />
+            </form>
+        </div>
+
+        <!-- User details -->
+        <p><strong>Full Name:</strong> <span th:text="${user.fullName}"></span></p>
+        <!-- Other user details here -->
+    </div>
+
+    <div th:if="${message != null}">
+        <p th:text="${message}"></p>
+    </div>
+</body>
+</html>

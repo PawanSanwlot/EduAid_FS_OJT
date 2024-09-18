@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Start your development with Creative Studio landing page." />
+  <meta name="author" content="Devcrud" />
+  <title>Trust-Eduaid</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/creative-studio.css" />
+  <style>
+    /* General Styles */
+    .bdy2 {
+      width: 100%;
+      max-width: 1100px;
+      margin: 90px auto 0;
+      padding: 20px;
+      background-color: #ffffff00;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(22, 21, 21, 0.1);
+      color: rgb(0, 0, 0);
+      overflow-y: auto;
+      max-height: 1450px; /* Adjust as needed */
+      scroll-behavior: smooth;
+    }
+    
+    /* Form Group Styles */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      font-weight: 800;
+      margin-bottom: 5px;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      font-size: large;
+    }
+    
+    .form-group input,
+    .form-group select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #000;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .form-group input[type="file"] {
+      padding: 3px;
+    }
+    
+    .form-group.full-width {
+      text-align: center;
+    }
+    
+    .form-group.full-width button {
+      padding: 10px 20px;
+      background-color: #0e240f5b;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+    
+    .form-group.full-width button:hover {
+      background-color: #45a049;
+    }
+    
+    .input-field {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    .input-field label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    /* Volunteer Section */
+      .volun p{
+        margin-top: 50px;
+        margin-left:250px;
+        
+      }
+      .volun img{
+        height: auto;
+        width:550px;
+      }
+    
+    .kri h1 {
+      text-align: center;
+      color: #000000;
+      margin-top: 30px;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .fields {
+        display: block;
+      }
+    
+      .form-group.full-width button {
+        width: 100%;
+      }
+    
+    }
+    #foo{
+        position: relative; 
+        margin-top: 1300px;
+    }
+    .list{
+        margin: 50px auto;
+      }
+    
+      </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" style="font-family: sans-serif;">
+  <!-- Page Navigation -->
+  <nav class="navbar custom-navbar navbar-expand-lg navbar-dark" data-spy="affix">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="/imgs/logo.png"  style="width: 90px" alt="Creative studio Landing page" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-success btn-sm ml-lg-3" href="/payment">Donate now</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="header" style="position: relative;">
+    <section id="about register">
+      <div class="container volun">
+        <div class="row align-items-center">
+          <div class="col-md-5 col-lg-4">
+            <img src="/imgs/trust.png" id="vol" alt="Volunteer Image" class="w-100 img-thumbnail mb-3" />
+          </div>
+          <div class="col-md-7 col-lg-8">
+            <h6 class="section-title mb-3">Trust</h6>
+            <p>Trusts play a central role in the website's operations by overseeing and supporting the efforts initiated by volunteers. Upon receiving posts about poor children or families from volunteers, trusts verify the authenticity and urgency of the cases.</p>
+            <p>They then organize and coordinate the necessary support, often in collaboration with donors who provide financial assistance. Trusts ensure that the aid reaches the right beneficiaries efficiently and transparently. </p>
+            <p>Additionally, they manage resources, plan interventions, and monitor the impact of the support provided. Trusts act as an intermediary, connecting the compassionate efforts of volunteers with the generosity of donors, and ensuring that help is delivered effectively to those in need.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="kri">
+      <h1 class="section-title mb-3">Trust Register</h1>
+      <div class="bdy2">
+        <form th:action="@{/trust/submit}" method="post" enctype="multipart/form-data">
+
+          <div class="fields">
+            <div class="form-group">
+              <label for="trust-name">Trust Name:</label>
+              <input type="text" id="trust-name" name="trust-name" placeholder="Enter trust name" required />
+            </div>
+            <div class="form-group">
+              <label for="govt-id">Trust Govt Issued ID No:</label>
+              <input type="text" id="govt-id" name="govt-id" placeholder="Enter govt ID number" required />
+            </div>
+            <div class="form-group">
+              <label for="trust-address">Trust Address:</label>
+              <input type="text" id="trust-address" name="trust-address" placeholder="Enter address" required />
+            </div>
+            <div class="form-group">
+              <label for="trust-city">Trust City:</label>
+              <input type="text" id="trust-city" name="trust-city" placeholder="Enter city" required />
+            </div>
+            <div class="form-group">
+              <label for="trust-district">Trust District:</label>
+              <input type="text" id="trust-district" name="trust-district" placeholder="Enter district" required />
+            </div>
+            <div class="form-group">
+              <label for="trust-year">Trust Started Year:</label>
+              <input type="number" id="trust-year" name="trust-year" placeholder="Enter starting year" required />
+            </div>
+            <div class="form-group">
+              <label for="donor-count">Trust Donor Count:</label>
+              <input type="number" id="donor-count" name="donor-count" placeholder="Enter donor count" required />
+            </div>
+            <div class="form-group">
+              <label for="volunteer-count">Trust Volunteer Count:</label>
+              <input type="number" id="volunteer-count" name="volunteer-count" placeholder="Enter volunteer count" required />
+            </div>
+            <div class="form-group">
+              <label for="total-members">Total Trust Members Count:</label>
+              <input type="number" id="total-members" name="total-members" placeholder="Enter total members count" required />
+            </div>
+            <div class="form-group full-width">
+              <label for="trust-members">Trust Members</label>
+              <div id="members-list">
+                <div class="member-item">
+                  <input type="text" name="member-name[]" placeholder="Enter member name" required />
+                </div>
+              </div>
+              <button type="button" id="add-member-btn">Add Member</button>
+            </div>
+            <div class="form-group">
+              <label for="trust-type">Type of Trust Service:</label>
+              <select id="trust-type" name="trust-type" required>
+                <option value="" disabled selected>Select option</option>
+                <option value="finance">Finance</option>
+                <option value="both">Both</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="trust-email">Trust Email:</label>
+              <input type="email" id="trust-email" name="trust-email" placeholder="Enter email" required />
+            </div>
+            <div class="form-group">
+              <label for="trust-password">Password:</label>
+              <input type="password" id="trust-password" name="trust-password" placeholder="Enter password" required />
+            </div>
+            <br />
+            <div class="input-field">
+              <label>
+                <input type="checkbox" required />
+                I agree to the <a href="#" target="_blank">Terms and Conditions</a>
+              </label>
+            </div>
+            <div class="form-group full-width">
+              <button id="but" type="submit">Register</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </header>
+    <!-- End Of Page Header -->
+
+    
+    <script>
+      document
+        .getElementById("add-member-btn")
+        .addEventListener("click", function () {
+          const membersList = document.getElementById("members-list");
+          const memberItem = document.createElement("div");
+          memberItem.className = "member-item";
+          memberItem.innerHTML =
+            '<input type="text" name="member-name[]" placeholder="Enter member name" required>';
+          membersList.appendChild(memberItem);
+        });
+    </script>
+
+    <!-- core  -->
+    <script src="/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap affix -->
+    <script src="/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Creative Studio js -->
+    <script src="/js/creative-studio.js"></script>
+  </body>
+</html>

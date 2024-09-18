@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust-Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/sk.css"> <!-- Link to external CSS file -->
+  <style>
+  
+
+   /* Side Main */
+.side-main {
+  border-right: 1px solid var(--color-light);
+  
+  width: 80%;
+  height: 100%;
+  margin-left: 9%;
+  z-index: -1;
+}
+
+    .profile-head {
+      transform: translateY(5rem);
+    }
+
+    .cover {
+      background-image: url('https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 200px;
+      /* Ensure the cover has a fixed height */
+    }
+
+    .profile img {
+      width: 130px;
+      border-radius: 50%;
+      margin-bottom: -50px;
+    }
+
+    .bg-light {
+      background-color: #f8f9fa;
+    }
+
+    .recent-photos img {
+      width: 100%;
+      height: auto;
+    }
+
+  </style>
+</head>
+
+<body class="light-theme">
+  <div class="twitter-wrap">
+    <!-- Left Sidebar -->
+    <div class="side-left">
+      <ul class="menu">
+        <li class="menu-item">
+          <a class="menu-link" href="Trust.html">
+            <i class="fas fa-home"></i>
+            <div class="icon-text">Home</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="profile.html">
+            <i class="fas fa-user-circle"></i>
+            <div class="icon-text">Profile</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="donor-list.html">
+            <i class="fas fa-hand-holding-heart"></i>
+            <div class="icon-text">Donor List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="trust-list.html">
+            <i class="fas fa-shield-alt"></i>
+            <div class="icon-text">Trust List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="volunteer-list.html">
+            <i class="fas fa-hands-helping"></i>
+            <div class="icon-text">Volunteer List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="favorites.html">
+            <i class="fas fa-bookmark"></i>
+            <div class="icon-text">Favorites</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="completed-cases.html">
+            <i class="fas fa-check-circle"></i>
+            <div class="icon-text">Cases Status</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="report-problem.html">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div class="icon-text">Report a Problem</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" id="theme-toggle" href="#">
+            <i class="fas fa-sun" id="theme-icon"></i>
+            <div class="icon-text">Theme</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="side-left">
+      <ul class="menu">
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_dashboard">
+            <i class="fas fa-home"></i>
+            <div class="icon-text">Home</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_profile">
+            <i class="fas fa-user-circle"></i>
+            <div class="icon-text">Profile</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_donor-list">
+            <i class="fas fa-hand-holding-heart"></i>
+            <div class="icon-text">Donor List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_trust-list">
+            <i class="fas fa-shield-alt"></i>
+            <div class="icon-text">Trust List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_volunteer-list">
+            <i class="fas fa-hands-helping"></i>
+            <div class="icon-text">Volunteer List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_favorites">
+            <i class="fas fa-bookmark"></i>
+            <div class="icon-text">Favorites</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_Cases Status">
+            <i class="fas fa-check-circle"></i>
+            <div class="icon-text">Cases Status</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/trust_report-problem">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div class="icon-text">Report a Problem</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" id="theme-toggle" href="#">
+            <i class="fas fa-sun" id="theme-icon"></i>
+            <div class="icon-text">Theme</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="side-main">
+      <div class="container-fluid ">
+        <div class="mx-auto">
+          <!-- Profile widget -->
+          <div class="bg-white shadow rounded overflow-hidden">
+            <!-- Cover and Profile Header -->
+            <div class="px-4 pt-0 pb-4 cover">
+              <div class="media align-items-end profile-head">
+                <div class="profile mr-3">
+                  <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+                    alt="Profile Picture" class="img-thumbnail rounded mb-2">
+                  <a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
+                </div>
+                <div class="media-body mb-5 text-white">
+                  <h4 class="mt-0 mb-0">Mark Williams</h4>
+                  <p class="small mb-4">
+                    <i class="fas fa-map-marker-alt mr-2"></i>New York
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Profile Stats -->
+            <div class="bg-light p-4 d-flex justify-content-end text-center">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item">
+                  <h5 class="font-weight-bold mb-0 d-block">215</h5>
+                  <small class="text-muted">
+                    <i class="fas fa-image mr-1"></i>Photos
+                  </small>
+                </li>
+                <li class="list-inline-item">
+                  <h5 class="font-weight-bold mb-0 d-block">745</h5>
+                  <small class="text-muted">
+                    <i class="fas fa-user mr-1"></i>Followers
+                  </small>
+                </li>
+                <li class="list-inline-item">
+                  <h5 class="font-weight-bold mb-0 d-block">340</h5>
+                  <small class="text-muted">
+                    <i class="fas fa-user mr-1"></i>Following
+                  </small>
+                </li>
+              </ul>
+            </div>
+            <!-- About Section -->
+            <div class="px-4 py-3">
+              <h5 class="mb-0">About</h5>
+              <div class="p-4 rounded shadow-sm bg-light">
+                <p class="font-italic mb-0">Web Developer</p>
+                <p class="font-italic mb-0">Lives in New York</p>
+                <p class="font-italic mb-0">Photographer</p>
+              </div>
+            </div>
+            <!-- Recent Photos -->
+            <div class="py-4 px-4">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="mb-0">Recent photos</h5>
+                <a href="#" class="btn btn-link text-muted">Show all</a>
+              </div>
+              <div class="row recent-photos">
+                <div class="col-lg-6 mb-2 pr-lg-1">
+                  <img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    alt="Recent Photo" class="img-fluid rounded shadow-sm">
+                </div>
+                <div class="col-lg-6 mb-2 pl-lg-1">
+                  <img src="https://images.unsplash.com/photo-1493571716545-b559a19edd14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    alt="Recent Photo" class="img-fluid rounded shadow-sm">
+                </div>
+                <div class="col-lg-6 pr-lg-1 mb-2">
+                  <img src="https://images.unsplash.com/photo-1507630711854-73a05d6f6488?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+                    alt="Recent Photo" class="img-fluid rounded shadow-sm">
+                </div>
+                <div class="col-lg-6 pl-lg-1">
+                  <img src="https://images.unsplash.com/photo-1542144582-1ba00456b5f7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+                    alt="Recent Photo" class="img-fluid rounded shadow-sm">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</body>
+
+</html>

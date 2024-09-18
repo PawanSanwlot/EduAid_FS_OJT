@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css"> <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="/css/sk.css">
+  <style>
+    
+    h2 {
+      background-color: #8b4500; /* Background color */
+      padding: 20px; /* Padding around the text */
+      border: 1px solid #ddd; /* Border around the box */
+      margin-left: 70px; /* Adjust the value as needed */
+      font-size: 24px; /* Font size */
+      color: #ffffff; /* Text color */
+      width: 89%;
+    }
+
+    /* Table Styles */
+    .table-custom {
+      width: 87%; /* Full width of the container */
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for table */
+      margin-left: 80px;
+    }
+
+    /* Table Header and Data Cells */
+    .table-custom th,
+    .table-custom td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .table-custom th {
+      background-color: #f4f4f4;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .table-custom td {
+      color: #666;
+    }
+
+    /* Row Hover Effect */
+    .table-custom tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    /* Button Styling */
+    .table-custom .btn-primary {
+      background-color: #007bff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      color: white;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .table-custom .btn-primary:hover {
+      background-color: #0056b3;
+      color: white;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .table-custom {
+        width: 100%; /* Full width on mobile screens */
+        box-sizing: border-box;
+      }
+
+      .table-custom th,
+      .table-custom td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .table-custom th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      .table-custom tr {
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .table-custom td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+      }
+
+      .table-custom td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding: 0 10px;
+        font-weight: bold;
+        text-align: left;
+        white-space: nowrap;
+      }
+    }
+
+    /* Additional styles for the Action column */
+    .table-custom th:last-child,
+    .table-custom td:last-child {
+      text-align: center; /* Center align the Action column */
+    }
+
+    /* Recent Activity Section Styles */
+    .recent-activity {
+      background-color: #fff; /* Background color for the section */
+      padding: 15px; /* Padding inside the section */
+      border-radius: 5px; /* Rounded corners */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for the section */
+      margin-bottom: 20px; /* Space below the section */
+    }
+
+    .recent-activity h5 {
+      font-size: 16px; /* Font size for the header */
+      margin-bottom: 15px; /* Space below the header */
+    }
+
+    .recent-activity ul {
+      list-style-type: none; /* Remove default list styling */
+      padding: 0; /* Remove default padding */
+      margin: 0; /* Remove default margin */
+    }
+
+    .recent-activity li {
+      margin-bottom: 10px; /* Space between list items */
+    }
+
+    .recent-activity a {
+      text-decoration: none; /* Remove underline from links */
+      color: #333; /* Text color for links */
+      display: flex; /* Flexbox for alignment */
+      align-items: center; /* Align items vertically */
+    }
+
+    .recent-activity a:hover {
+      color: #007bff; /* Change color on hover */
+    }
+
+    .recent-activity i {
+      margin-right: 10px; /* Space between icon and text */
+    }
+  </style>
+</head>
+
+<body class="light-theme">
+  <div class="twitter-wrap">
+    <!-- Left Sidebar -->
+    <div class="side-left">
+      <ul class="menu">
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_dashboard">
+            <i class="fas fa-home"></i>
+            <div class="icon-text">Home</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_profile">
+            <i class="fas fa-user-circle"></i>
+            <div class="icon-text">Profile</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_donor-list">
+            <i class="fas fa-hand-holding-heart"></i>
+            <div class="icon-text">Donor List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_trust-list">
+            <i class="fas fa-shield-alt"></i>
+            <div class="icon-text">Trust List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_volunteer-list">
+            <i class="fas fa-hands-helping"></i>
+            <div class="icon-text">Volunteer List</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_favorites">
+            <i class="fas fa-bookmark"></i>
+            <div class="icon-text">Favorites</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_completed-cases">
+            <i class="fas fa-check-circle"></i>
+            <div class="icon-text">Cases Status</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="/donor_report-problem">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div class="icon-text">Report a Problem</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" id="theme-toggle" href="#">
+            <i class="fas fa-sun" id="theme-icon"></i>
+            <div class="icon-text">Theme</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="side-main">
+      <h2>Volunteer List</h2>
+      <table class="table-custom">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Emily Johnson</td>
+            <td>Los Angeles</td>
+            <td>emily.johnson@example.com</td>
+            <td>(555) 123-4567</td>
+            <td><a href="#" class="btn-primary">View</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Michael Brown</td>
+            <td>Chicago</td>
+            <td>michael.brown@example.com</td>
+            <td>(555) 234-5678</td>
+            <td><a href="#" class="btn-primary">View</a></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Alice Davis</td>
+            <td>New York</td>
+            <td>alice.davis@example.com</td>
+            <td>(555) 345-6789</td>
+            <td><a href="#" class="btn-primary">View</a></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>David Wilson</td>
+            <td>San Francisco</td>
+            <td>david.wilson@example.com</td>
+            <td>(555) 456-7890</td>
+            <td><a href="#" class="btn-primary">View</a></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Sarah Martinez</td>
+            <td>Miami</td>
+            <td>sarah.martinez@example.com</td>
+            <td>(555) 567-8901</td>
+            <td><a href="#" class="btn-primary">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Right Sidebar (optional) -->
+    <div class="side-right">
+      <!-- Recent Activity Section -->
+      <div class="recent-activity">
+        <h5>Recent Activity</h5>
+        <ul>
+          <li><a href="#"><i class="fas fa-dot-circle" style="color: green;"></i> User1 liked your post</a></li>
+          <li><a href="#"><i class="fas fa-dot-circle" style="color: green;"></i> User2 commented on your photo</a></li>
+          <li><a href="#"><i class="fas fa-dot-circle" style="color: green;"></i> User3 followed you</a></li>
+          <li><a href="#"><i class="fas fa-dot-circle" style="color: green;"></i> User4 shared your tweet</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle between light and dark themes
+    document.getElementById('theme-toggle').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.body.classList.toggle('dark-theme');
+      const icon = document.getElementById('theme-icon');
+      if (document.body.classList.contains('dark-theme')) {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      } else {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      }
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="/js/posts.js"></script> <!-- JavaScript for dynamically adding posts -->
+  <script src="/js/scripts.js"></script> <!-- Theme toggle and sidebar script -->
+</body>
+
+</html>

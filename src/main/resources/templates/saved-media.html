@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Saved Media</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .media-container {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px;
+            border: 2px solid #333;
+            border-radius: 8px;
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .download-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Saved Media Files</h1>
+
+    <div th:if="${savedMedia != null}">
+        <div th:each="media : ${savedMedia}" class="media-container">
+            <h2 th:text="${media.fileName}">Media File Name</h2>
+            <p th:text="${media.description}">Description</p>
+            <p>Uploaded by: <span th:text="${media.userEmail}">User Email</span></p>
+
+            <div th:if="${media.fileType.startsWith('video')}">
+                <video controls>
+                    <source th:src="@{/media/video/{id}(id=${media.id})}" th:type="${media.fileType}" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div th:if="${!media.fileType.startsWith('video')}">
+                <p>Media format not supported for video player. Download file:</p>
+                <a th:href="@{/media/download/{id}(id=${media.id})}" class="download-link">Download</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Saved Media</title>
+    <style>
+        /* Add relevant CSS styles for saved media page */
+    </style>
+</head>
+<body>
+
+    <h1>Your Saved Media</h1>
+
+    <div th:if="${savedMedia != null}">
+        <div th:each="media : ${savedMedia}" class="media-container">
+            <h2 th:text="${media.fileName}">Media File Name</h2>
+            <p th:text="${media.description}">Description</p>
+            <p>Uploaded by: <span th:text="${media.userEmail}">User Email</span></p>
+
+            <div th:if="${media.fileType.startsWith('video')}">
+                <video class="video-player" controls>
+                    <source th:src="@{/media/video/{id}(id=${media.id})}" 
+                            th:type="${media.fileType}" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div th:if="${!media.fileType.startsWith('video')}">
+                <p>Media format not supported for video player. Download file:</p>
+                <a th:href="@{/media/download/{id}(id=${media.id})}" class="download-link">Download</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

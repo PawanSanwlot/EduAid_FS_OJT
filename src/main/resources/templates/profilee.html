@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+
+<h1>User Profile</h1>
+
+<div th:if="${user != null}">
+    <p><strong>Name:</strong> <span th:text="${user.fullName}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+    <p><strong>Address:</strong> <span th:text="${user.address}"></span></p>
+    <p><strong>City:</strong> <span th:text="${user.city}"></span></p>
+    <p><strong>District:</strong> <span th:text="${user.district}"></span></p>
+    <!-- Add more fields as needed -->
+</div>
+
+<div th:if="${error != null}">
+    <p th:text="${error}"></p>
+</div>
+
+</body>
+</html>

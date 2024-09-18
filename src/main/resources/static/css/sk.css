@@ -1,0 +1,317 @@
+/* Color Variables */
+:root {
+  --color-twitter: #1B95E0;
+  --color-grey: #999;
+  --color-dark: #000000;
+  --color-white: #fff;
+  --color-light: #eee;
+  --color-light-bg: #f0f0f0; /* Light theme background */
+  --color-dark-bg: #333; /* Dark theme background */
+  --color-dark-text: #fff; /* Dark theme text */
+  --color-brown: #8B4513; /* Brown color for light mode navbar items */
+  --color-green: #009800; /* Green color for hover effects */
+}
+
+/* Light Theme */
+body.light-theme {
+  background-color: #eaeaea;
+}
+
+body.light-theme .twitter-wrap {
+  background-color: transparent;
+}
+
+body.light-theme .post,
+body.light-theme .side-main {
+  background-color: #ccc;
+}
+
+.posts-container,
+body.light-theme .side-left,
+body.light-theme .side-right,
+body.light-theme .advertisement {
+  background-image: url(./background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body.light-theme .menu-link {
+  background-color: var(--color-light);
+  color: var(--color-brown); /* Initial color for navbar items in light theme */
+}
+
+body.light-theme .menu-link:hover {
+  background-color: var(--color-dark);
+  color: var(--color-green); /* Hover color for navbar items in light theme */
+}
+
+body.light-theme .post-content {
+  color: var(--color-dark);
+}
+
+/* Dark Theme */
+body.dark-mode {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text color */
+}
+
+.dark-mode .side-left,
+.dark-mode .side-main,
+.dark-mode .side-right {
+  background-color: #1e1e1e; /* Dark background for sidebars */
+  color: #e0e0e0; /* Light text color for sidebars */
+}
+
+.dark-mode .advertisement,
+.dark-mode .recent-activity,
+.dark-mode .posts-container {
+  background-color: #1e1e1e; /* Dark background */
+  color: #e0e0e0; /* Light text color */
+}
+
+.dark-mode .carousel-control-prev-icon,
+.dark-mode .carousel-control-next-icon {
+  background-color: #e0e0e0; /* Light color for carousel controls */
+}
+
+body.dark-theme .side-left,
+body.dark-theme .side-main,
+body.dark-theme .side-right,
+body.dark-theme .advertisement,
+body.dark-theme .recent-activity,
+body.dark-theme .post {
+  background-color: var(--color-dark-bg);
+  border-color: var(--color-dark);
+}
+
+body.dark-theme .menu-link {
+  background-color: var(--color-light);
+  color: var(--color-white); /* Initial color for navbar items in dark theme */
+}
+
+body.dark-theme .menu-link:hover {
+  background-color: var(--color-twitter);
+  color: var(--color-green); /* Hover color for navbar items in dark theme */
+}
+
+body.dark-theme .post-content {
+  color: var(--color-dark-text);
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url(./background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+}
+
+/* General Styles */
+ul {
+  list-style: none;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Side Left */
+.side-left {
+  border-right: 1px solid var(--color-light);
+  position: fixed; /* Fixed position for sidebar */
+  height: 100%;
+  width: 150px; /* Increased width */
+  text-align: right;
+  padding-top: 60px; /* Moves the entire menu 40px down */
+  background-color: var(--color-light); /* Background color for light mode */
+}
+
+/* Menu Link */
+.menu-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0;
+  color: var(--color-dark);
+  text-decoration: none;
+  width: 100%; /* Full width for better alignment */
+}
+
+.menu-link i {
+  font-size: 24px;
+  color: var(--color-dark);
+}
+
+/* Tooltip Styles */
+.icon-text {
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--color-dark);
+}
+
+/* Show text on hover */
+.menu-link:hover .icon-text {
+  display: block; /* Show text on hover */
+}
+
+.menu-link:hover {
+  background-color: var(--color-twitter);
+}
+
+.menu-link:hover i {
+  color: var(--color-white);
+}
+
+.menu-link.active i, 
+.menu-link.active .icon-text {
+  color: var(--color-twitter);
+}
+
+.menu-link:hover i, .menu-link:hover .icon-text {
+  color: var(--color-twitter);
+}
+
+.link-home {
+  font-weight: 500;
+  color: var(--color-dark);
+  font-size: 20px;
+}
+
+/* Right Sidebar (Removed in the new design) */
+.side-right {
+  display: none; /* Hide right sidebar */
+}
+
+/* Profile Page Full Width */
+.profile-page {
+  width: 100vw; /* Full width of the viewport */
+  height: calc(100vh - 10px); /* Full height minus 10px for top margin */
+  margin-top: 10px; /* Adds 10px distance from top */
+  overflow: hidden; /* Remove scrollbar */
+  padding: 20px;
+}
+
+/* Posts Container */
+.posts-container {
+  background-color: var(--color-white);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 0 auto; /* Center horizontally */
+  width: calc(100% - 150px); /* Adjust width to account for side-left */
+  box-shadow: 0px 0px 10px #ccc;
+}
+
+@media (max-width: 768px) {
+  .posts-container {
+      width: 100%; /* Full width on mobile devices */
+      margin: 0; /* Remove horizontal margin on mobile */
+  }
+}
+
+/* Post Styling */
+.post {
+  border: 1px solid #ddd;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px; /* Optional: Adjust to fit your design */
+  margin: 0 auto; /* Center the div horizontally */
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.post-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-user {
+  font-weight: bold;
+  color: #333;
+}
+
+.post-time {
+  font-size: 14px;
+  color: #999;
+}
+
+.post-content {
+  font-size: 16px;
+  color: #333;
+}
+
+.post-content-container {
+  margin-top: 10px;
+}
+
+.post-content {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px; /* Gap between content and media */
+}
+
+.post-header img.post-img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+/* Post Actions Button Styling */
+.post-actions {
+  display: flex;
+  justify-content: space-between; /* Distribute buttons evenly */
+  gap: 40px; /* Set the gap between buttons */
+  padding: 10px;
+}
+
+.post-actions button {
+  border: none;
+  background-color: var(--color-twitter);
+  color: var(--color-white);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.post-actions button:hover {
+  background-color: var(--color-grey);
+}
+
+.post-actions button:disabled {
+  background-color: var(--color-grey);
+  cursor: not-allowed;
+}
+
+/* Post Media Container */
+.post-media {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-top: 10px; /* Space between content and media */
+}
+
+.post-media img {
+  max-width: 100%; /* Ensure image fits within container */
+  height: auto; 
+}

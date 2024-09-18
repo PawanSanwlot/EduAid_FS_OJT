@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Current Volunteer</title>
+</head>
+<body>
+    <h1>Current Volunteer Information</h1>
+
+    <div th:if="${volunteer != null}">
+        <p>Name: <span th:text="${volunteer.fullName}">Full Name</span></p>
+        <p>Email: <span th:text="${volunteer.email}">Email</span></p>
+        <p>Phone: <span th:text="${volunteer.phone}">Phone</span></p>
+        <!-- Add other volunteer fields here -->
+    </div>
+</body>
+</html>
